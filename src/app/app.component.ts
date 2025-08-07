@@ -28,13 +28,38 @@ export class AppComponent {
   
   btnClick()
   {
-    console.log("Button Clocked");
+    console.log("Button Clicked");
   }
 
-  btnMouseOver()
+  btnMouseOver(event : any)
   {
-    console.log("Curser hovering the button");
+    //console.log("Curser hovering the button");
+    console.log(event);
+
+    let element = event.target as HTMLButtonElement;
   }
 
+  // should mention the type, like any[when we don't know thw specific type, we mention any]
+captureData(eventDetails : KeyboardEvent)
+{
+
+  //console.log("Capturing entering words");
+  console.log(eventDetails);
+  //console.log(eventDetails.target.value);
+  let element = eventDetails.target as HTMLInputElement;
+  let data = element.value
+  console.log(data);
+
+}
+// captureData()
+// {
+
+//   console.log("Capturing entering words");
+  
+// }
+
+// For event and property binding
+
+placeholdervalue = "Enter Your Mobile Number";
 
 }

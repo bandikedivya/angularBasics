@@ -1,4 +1,4 @@
-<!-- Hello, This is Angular First Custom Component
+<!--Hello, This is Angular First Custom Component
 <app-test-comp></app-test-comp> -->
 
 <!-- string interpolation -->
@@ -31,6 +31,24 @@
          <br/>
          <br/>
 
-        <button (click) = "btnClick()"  (mouseover) = "btnMouseOver()"> Submit</button>
+        <!-- <button (click) = "btnClick()"  (mouseover) = "btnMouseOver()"> Submit</button> -->
+        <button (click) = "btnClick()"  (mouseover) = "btnMouseOver($event)"> Submit</button>
 
     <!-- click is built-in action, mouseover is built-in action -->
+
+
+    
+    <!-- $event: it is a keyword in angular, by using this event we can trace event [like activities, properties]-->
+    <!--We use $event, when or while method triggering.-->
+<br>
+<br>
+
+<h2> Name:</h2>
+    <input type = "text" (keyup) = "captureData($event)" placeholder="Enter your Name">
+    <!--Here The character entered in the textbox will be captured by the method(captureData()) in component.ts. To show which word or character is being entered or entering, we use "$event". When you enter a character in the textbox, this $event will show the entered character. -->
+<br>
+<br>
+
+<h2> Mobile Number:</h2>
+    <!--Both Property Binding and Event Binding-->
+<input type = "text" (keyup) = "captureData($event)" [placeholder]="placeholdervalue">
