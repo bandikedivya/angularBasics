@@ -45,10 +45,16 @@ captureData(eventDetails : KeyboardEvent)
 
   //console.log("Capturing entering words");
   console.log(eventDetails);
-  //console.log(eventDetails.target.value);
+ // console.log(eventDetails.target.value);
   let element = eventDetails.target as HTMLInputElement;
   let data = element.value
   console.log(data);
+
+if(data == "Conrad")
+{
+// document.writeln("Already Registered");
+console.log("Already Registered, Please Login Through Credentials");
+}
 
 }
 // captureData()
@@ -62,4 +68,42 @@ captureData(eventDetails : KeyboardEvent)
 
 placeholdervalue = "Enter Your Mobile Number";
 
+Course = "Please Select Course";
+
+//sName = "Swapna";
+
+//isChecked = !true; //false
+
+isChecked = !false; //true
+
+selectedvalue = 4;
+
+
+dropvaluechange()
+{
+  console.log("Value Changed");
 }
+
+modelChange($event:any)
+{
+  console.log($event);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
