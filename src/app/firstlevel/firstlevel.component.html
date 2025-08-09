@@ -1,0 +1,107 @@
+<p>firstlevel works!</p>
+<!-- Hello, This is Angular First Custom Component
+<app-test-comp></app-test-comp> -->
+
+<!-- string interpolation -->
+ 
+<!-- <h3>angularBasics</h3> -->
+
+<h2>Welcome to {{title}}</h2>
+
+<h3>Started Course on {{StartDate}}</h3>
+
+<p>{{getStudRegisterName()}} Registered Course {{title}} on {{StartDate}}</p>
+
+    <!-- Property databinding -->
+    <!-- attach the data to the property -->
+    <!--Syntax: [propertyname] -->
+    <label>Student Name:     </label><input [value] = "StudentRole">
+
+    <br/>
+    <br/>
+    <label>Student Course: </label>
+    <input type = "text" disabled = "true">
+    <input [type]="inputType" disabled = "true">
+
+    <input [type] = "inputType">
+    <input [type] = "inputType" [disabled] = "isDisabled">
+
+
+        <!-- Event Data Binding -->
+        <!-- Syntax : ()-->
+         <br/>
+         <br/>
+
+        <!-- <button (click) = "btnClick()"  (mouseover) = "btnMouseOver()"> Submit</button> -->
+        <!-- <button (click) = "btnClick()"  (mouseover) = "btnMouseOver($event)"> Submit</button> -->
+
+    <!-- click is built-in action, mouseover is built-in action -->
+
+
+    
+    <!-- $event: it is a keyword in angular, by using this event we can trace event [like activities, properties]-->
+    <!--We use $event, when or while method triggering.-->
+
+<h2> Name:</h2>
+    <input type = "text" (keyup) = "captureData($event)" placeholder="Enter your Name">
+    <!--Here The character entered in the textbox will be captured by the method(captureData()) in component.ts. To show which word or character is being entered or entering, we use "$event". When you enter a character in the textbox, this $event will show the entered character. -->
+<br>
+
+<h2> Mobile Number:</h2>
+    <!--Both Property Binding and Event Binding-->
+<input type = "text" (keyup) = "captureData($event)" [placeholder]="placeholdervalue">
+
+<!-- <h2> Course List</h2>
+
+<input type = "text" [value] = "Course"/>
+
+<input type="checkbox" [checked] = "isChecked">
+
+<select (change) = "dropvaluechange()">
+    <option [selected] = "selectedvalue == 1" value = "1">CSharp</option>
+    <option [selected] = "selectedvalue == 2" value = "2">JavaScript</option>
+    <option [selected] = "selectedvalue == 3" value = "3">TypeScript</option>
+    <option [selected] = "selectedvalue == 4" value = "4" selected >Angular </option>
+</select> -->
+
+<h2> Course List:</h2>
+
+<input type = "text" [ngModel] = "Course" (ngModelChange) = "modelChange($event)" />
+
+<input type="checkbox" [ngModel] = "isChecked" (ngModelChange) = "modelChange($event)">
+
+
+<!--In dropdown, nhModel always should assign with the value like here [ngModel] is assigned to "selectedvalue"-->
+<select (change) = "dropvaluechange()" [ngModel] = "selectedvalue" (ngModelChange) = "modelChange($event)">
+    <option  value = "1">CSharp</option>
+    <option  value = "2">JavaScript</option>
+    <option  value = "3">TypeScript</option>
+    <option  value = "4" selected >Angular </option>
+</select>
+
+<!-- <input type="text" [value] = "sName">
+     <input type="checkbox" [checked]="isChecked">
+    <select (change)= "drpChange()">
+        <option [selected]="selectedValue == 1" value="1">Madhu</option>
+        <option [selected]="selectedValue == 2" value="2">Mouni</option>
+        <option [selected]="selectedValue == 3" value="3">Swapna</option>
+        <option [selected]="selectedValue == 4" value="4">Divya</option>
+    </select> -->
+
+<br>
+<br>
+        <button (click) = "btnClick()"  (mouseover) = "btnMouseOver($event)"> Submit</button>
+
+
+<!--Two way Data Binding  = property binding + event binding-->
+<!--Achieve by using [ngModel]-->
+<!-- Two Way Data Binding Syntax: [()]-->
+<!-- [(ngModel)]  = [ngModel] + (ngModelChange) -->
+<h3>Registered Course:</h3>
+<input type = "text" [(ngModel)] = "RegisteredCourse">
+
+<br>
+
+Registered Course: <span>{{RegisteredCourse}}</span>
+<br>
+<textarea [value] = "RegisteredCourse"></textarea>

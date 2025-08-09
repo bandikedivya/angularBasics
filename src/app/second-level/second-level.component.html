@@ -1,0 +1,40 @@
+<!-- <p>second-level works!</p> -->
+
+
+<!-- ngStyle -->
+<!-- ngStyle Syntax: -->
+<!-- <div style = "background-color: lavender"> Angular Details</div> -->
+<div [ngStyle] = 
+"{
+    'background-color': FirstelementColor,
+    'font-size'       : FontSize,
+ }" (mouseover) = "ChangeColor()" 
+    (mouseout) = "resetColor()"
+    (click) = "Clickelement()">{{CourseDetails}} </div>
+    
+ <br>
+
+<!-- <button (click) = "submitbutton()">Submit</button>
+<button [ngStyle] =
+"{
+    'background-color' : buttonColor
+}">Button</button> -->
+
+<!--ngClass-->
+<div [ngClass] = "'para'">
+    Angular 16.0.2 version
+</div>
+<br>
+<br>
+
+<div [ngClass] = "completedTask1 == true ? 'para' : 'para1'">
+   Submit Angular Task1 
+</div>
+<hr>
+<button (click) = "changePara()">Submit</button>
+<br>
+{{completedTask1}}
+
+
+
+
