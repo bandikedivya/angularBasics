@@ -1,0 +1,20 @@
+<!-- <p>third-level works!</p> -->
+<!-- ngIf is Structural Direction(which influences dom)-->
+
+<!--sting interplolation-->
+<p>{{checkEligibility}}</p>
+
+
+<!-- <input type = "checkbox"  checked = "checkEligibility" /> -->
+ 
+<!--Two Way Data Binding-->
+<input type = "checkbox"  [(ngModel)] = "checkEligibility" />
+
+
+<!-- <p *ngIf = "true">
+    Login Password : @!#*#*@!**@#
+</p> -->
+
+<p *ngIf = "checkEligibility">
+    Login Password : @!#*#*@!**@#
+</p>
