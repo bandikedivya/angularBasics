@@ -1,20 +1,182 @@
 <!-- <p>third-level works!</p> -->
-<!-- ngIf is Structural Direction(which influences dom)-->
+<!-- ngIf (Directive) is Structural Direction(which influences dom)-->
 
 <!--sting interplolation-->
-<p>{{checkEligibility}}</p>
+<!-- <p>{{checkEligibility}}</p> -->
 
 
 <!-- <input type = "checkbox"  checked = "checkEligibility" /> -->
- 
+
 <!--Two Way Data Binding-->
-<input type = "checkbox"  [(ngModel)] = "checkEligibility" />
+<!-- <input type = "checkbox"  [(ngModel)] = "checkEligibility" /> -->
 
 
 <!-- <p *ngIf = "true">
     Login Password : @!#*#*@!**@#
 </p> -->
 
-<p *ngIf = "checkEligibility">
+<!-- <p *ngIf = "checkEligibility">
+    Login Password : @!#*#*@!**@#
+</p> -->
+
+
+<!--Local Reference(Element) - Passing the element reference to the actions-->
+<!--We can have passed local reference as a parameter and in else condition also, check line numbers: 27 and 38 once. -->
+
+
+<!-- <p #viewpassword> Click Submit Button to Update the Password </p>
+
+<button (click)="Clickbtn(viewpassword)">Submit</button>
+
+<p>{{output}}</p> -->
+
+
+<!--ngTemplete(ELement) - By default, the content will be displayed. So, to hide the content like password, we use ngTemplete, to render/execute based on the condition.-->
+<!--Here, To show the alternative message, we use ng-templete-->
+<!-- <p>{{checkEligibility}}</p>
+
+<input type = "checkbox"  [(ngModel)] = "checkEligibility" />
+
+<p *ngIf = "checkEligibility; else altmgs">
     Login Password : @!#*#*@!**@#
 </p>
+
+<ng-template #altmgs>
+<p>
+    Access Denied!!   
+</p>
+<span> Please Contact<strong> Admin</strong> Once.</span>
+</ng-template> -->
+
+<!--ngFor(Directive)- Used to print the list of values/ collection of data.-->
+
+<p> Eligibilty to register for the exam </p>
+
+<!--In HTML-->
+<!-- <ul>
+<li><strong>Minimum Percentage/CGPA:</strong> Candidate should have a minimum of 60% or 6.0 CGPA in 10th, 12th, and undergraduate degrees.</li>
+    <li><strong>No Active Backlogs:</strong> Candidates with No Active Backlogs. </li>
+    <li><strong>No Gaps in Education:</strong> No Gaps in Candidate's Academic Record. </li>
+</ul> -->
+
+<!--In Angular using ngfor-->
+
+<ul>
+    <li *ngFor="let data of Content">
+        <!-- {{data}} -->
+        <input type="text" [value]="data" />
+    </li>
+</ul>
+
+<!-- To get the index for the data-->
+<ul>
+    <li *ngFor="let data of Content ; let indexvalue = index">
+        <!-- {{data}} -->
+        {{indexvalue}} : <input type="text" [value]="data" />
+    </li>
+</ul>
+<!-- Dropdown-->
+
+<select>
+    <option *ngFor="let data of Content; let indexvalue = index" [value]="indexvalue">{{data}}</option>
+</select>
+
+<h3>Applied Students List</h3>
+<!-- <ul>
+    <li *ngFor = "let student of StudentsList">{{student}}</li>
+</ul> -->
+
+
+<select [(ngModel)]=defaultname>
+    <option *ngFor="let student of StudentsList ; let indexval = index" [value]="indexval">
+        {{student}}
+    </option>
+</select>
+
+
+
+<input type="text" [(ngModel)]="selectName" />
+<hr>
+<button (click)="EvtSelName()">Submit</button>
+
+
+<hr>
+<input type="text" [(ngModel)]="defaultname" />
+<select [(ngModel)]=defaultname>
+    <option *ngFor="let student of StudentsList ; let indexval = index" [value]="indexval">
+        {{student}}
+    </option>
+</select>
+
+<ul>
+    <li *ngFor="let Candidate of SList ; let indexvalue = index">
+        {{Candidate.SId}} - {{Candidate.SName}}
+    </li>
+</ul>
+
+
+<select [(ngModel)]="DefaultCandidate">
+    <option *ngFor="let Candidate of SList" [value]="Candidate.SId">
+        {{Candidate.SName}}
+    </option>
+</select>
+
+
+<!--table-->
+
+<!-- <hr>
+<table>
+    <thead>
+        <tr>
+            <th>Student ID </th>
+            <th>Student Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>CSE10</td>
+            <td>Jermiah Fisher</td>
+        </tr>
+        <tr>
+            <td>CSE20</td>
+            <td>Conrad Fisher</td>
+        </tr>
+        <tr>
+            <td>CSE30</td>
+            <td>Susanah Fisher</td>
+        </tr>
+    </tbody>
+
+    
+</table> -->
+<!--Angular Table-->
+<hr>
+<table>
+    <thead>
+        <tr>
+            <th *ngFor = "let headerdata of HeaderContent">{{headerdata}}</th>
+            <!-- <th>Student ID </th>
+            <th>Student Name</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let content of SList">
+            <td>{{content.SId}}</td>
+            <td>{{content.SName}}</td>
+    </tbody>
+</table>
+
+<!--ngSwitch and ngswitchcase-->
+
+<p> Enter Student ID To Check The Status Of The Exam [1, 2, 3 Only...  ]</p>
+
+<input type = "text" [(ngModel)] = "stuid"/>
+<br>
+<br>
+<button [(ngModel)] = "stuid"> Submit</button>
+<div [ngSwitch]="stuid">
+    <p *ngSwitchCase="1">CSE10 Qualified Exam</p>
+    <p *ngSwitchCase="2">CSE20 Qualified Exam</p>
+    <p *ngSwitchCase="3">CSE30 Qualified Exam</p>
+    <p *ngSwitchDefault="">Student ID Does Not Exists</p>
+</div>
