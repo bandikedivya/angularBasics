@@ -1,0 +1,39 @@
+<!--View Child-->
+<!-- <h3> Sign In </h3>
+<p #mgs>Please Enter Your First Name</p>
+<input type = "text" placeholder = "First Name"  #firstName/>
+<br>
+<br>
+<button (click)="btnClick()">Submit</button> -->
+
+
+<!-- <ng-content></ng-content> This is used, as the content in app.comp.html is not rendering directly. So, we use this ng-content to render the content in app.comp.html -->
+<!-- <ng-content select = "selecttext1"></ng-content> -->
+<ng-content select = "[selecttext]"></ng-content>
+
+
+
+
+<!--div - it does create dom-->
+<div *ngFor="let number of NumberList" style=" background-color: aqua;">{{number}}</div>
+
+<!--ng-Container - it doesn't create dom and when we apply style, there will be no changes, as the data/content in ng-container will not be rendered-->
+<ng-container *ngFor="let number of NumberList" style="background-color: aqua;">{{number}}</ng-container>
+
+
+
+
+<ng-container #container></ng-container>
+
+<!-- <ng-template #tempCom> -->
+    <!-- <span>Template Content</span> -->
+    <!-- <input type = "text" placeholder="First Name"/>
+</ng-template> -->
+
+<ng-template #tempCom let-firstname = "firstName">
+    <!-- <span>Template Content</span> -->
+    <input type = "text" placeholder="First Name" [value] = "firstname"/>
+</ng-template>
+
+
+<button (click) = "etnclick()">Click Me</button>
