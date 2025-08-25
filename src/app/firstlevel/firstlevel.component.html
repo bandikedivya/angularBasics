@@ -19,11 +19,14 @@
 
     <br/>
     <br/>
+    <img src = "https://misard.com/assets/img/madan.png" width="100">
+    <img  [src] = "imageurl" [width] = "imgwidth">
     <label>Student Course: </label>
     <input type = "text" disabled = "true">
     <input [type]="inputType" disabled = "true">
 
     <input [type] = "inputType">
+    <input [type] = "inputType" [disabled] = "isDisabled">
     <input [type] = "inputType" [disabled] = "isDisabled">
 
 
@@ -32,10 +35,10 @@
          <br/>
          <br/>
 
-        <!-- <button (click) = "btnClick()"  (mouseover) = "btnMouseOver()"> Submit</button> -->
-        <!-- <button (click) = "btnClick()"  (mouseover) = "btnMouseOver($event)"> Submit</button> -->
+        <!-- <button (click) = "btnClick()"  (mouseover) = "btnMouseOver()"> Submit</button>  -->
+         <button (click) = "btnClick()"  (mouseover) = "btnMouseOver($event)"> Submit</button>
 
-    <!-- click is built-in action, mouseover is built-in action -->
+  <!-- click is built-in action, mouseover is built-in action -->
 
 
     
@@ -51,7 +54,7 @@
     <!--Both Property Binding and Event Binding-->
 <input type = "text" (keyup) = "captureData($event)" [placeholder]="placeholdervalue">
 
-<!-- <h2> Course List</h2>
+<h2> Course List</h2>
 
 <input type = "text" [value] = "Course"/>
 
@@ -62,16 +65,33 @@
     <option [selected] = "selectedvalue == 2" value = "2">JavaScript</option>
     <option [selected] = "selectedvalue == 3" value = "3">TypeScript</option>
     <option [selected] = "selectedvalue == 4" value = "4" selected >Angular </option>
-</select> -->
+</select>
+<hr>
 
+<select (change) = "dropvaluechange()">
+    <option [selected] = "selectcountry == 2" value = "2">India</option>
+    <option [selected] = "selectcountry == 3" value = "3">US</option>
+    <option [selected] = "selectcountry == 4" value = "4">UK</option>
+    <option [selected] = "selectcountry == -1" value = "-1">Please Select Country</option>
+</select>
+
+
+<!-- <select>
+    <option>Divya</option>
+    <option>Swapna</option>
+    <option selected>Venkatesh</option>
+    <option>Pavi</option>
+</select> -->
 <h2> Course List:</h2>
 
+
+<!-- To use ngModel, should import FormsModule and should add FormsModule under imports in app.module.ts-->
 <input type = "text" [ngModel] = "Course" (ngModelChange) = "modelChange($event)" />
 
 <input type="checkbox" [ngModel] = "isChecked" (ngModelChange) = "modelChange($event)">
 
 
-<!--In dropdown, nhModel always should assign with the value like here [ngModel] is assigned to "selectedvalue"-->
+<!--In dropdown, ngModel always should assign with the value like, here [ngModel] is assigned to "selectedvalue"-->
 <select (change) = "dropvaluechange()" [ngModel] = "selectedvalue" (ngModelChange) = "modelChange($event)">
     <option  value = "1">CSharp</option>
     <option  value = "2">JavaScript</option>

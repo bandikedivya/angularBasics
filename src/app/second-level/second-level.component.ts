@@ -30,10 +30,11 @@ Clickelement()
 
 
 
-  //buttonColor = 'green';
+  buttonColor = 'blue';
 
 
-  completedTask1 = false;
+  completedTask1 = true;
+
 
 
 changePara()

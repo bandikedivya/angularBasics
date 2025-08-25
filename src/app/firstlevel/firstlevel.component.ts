@@ -17,7 +17,8 @@ export class FirstlevelComponent {
 
   //Property databinding
   // attach the data to the property
-
+  imageurl = "https://misard.com/assets/img/madan.png";
+  imgwidth = 100;
   StudentRole  = "Student Name"
   inputType  = "checkbox";
   isDisabled = true;
@@ -30,12 +31,14 @@ export class FirstlevelComponent {
     console.log("Button Clicked");
   }
 
-  btnMouseOver(event : any)
+  //btnMoverOver(event:any)
+  btnMouseOver(event : MouseEvent)
   {
     //console.log("Curser hovering the button");
     console.log(event);
 
     let element = event.target as HTMLButtonElement;
+    console.log(element);
   }
 
   // should mention the type, like any[when we don't know thw specific type, we mention any]
@@ -75,8 +78,9 @@ Course = "Please Select Course";
 
 isChecked = !false; //true
 
-selectedvalue = 4;
+selectedvalue = 2;
 
+selectcountry = -1;
 
 dropvaluechange()
 {
@@ -87,6 +91,7 @@ modelChange($event:any)
 {
   console.log($event);
 }
+
 
 
 // Two way Data Binding

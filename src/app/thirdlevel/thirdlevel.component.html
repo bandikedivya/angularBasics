@@ -1,5 +1,5 @@
 <!-- <p>third-level works!</p> -->
-<!-- ngIf (Directive) is Structural Direction(which influences dom)-->
+<!-- ngIf (Directive) is Structural Direction[which has * like *ngIf, *ngFor](which influences dom)-->
 
 <!--sting interplolation-->
 <!-- <p>{{checkEligibility}}</p> -->
@@ -11,24 +11,24 @@
 <!-- <input type = "checkbox"  [(ngModel)] = "checkEligibility" /> -->
 
 
-<!-- <p *ngIf = "true">
+<p *ngIf = "false">
     Login Password : @!#*#*@!**@#
-</p> -->
+</p>
 
-<!-- <p *ngIf = "checkEligibility">
+<p *ngIf = "checkEligibility">
     Login Password : @!#*#*@!**@#
-</p> -->
+</p>
 
 
 <!--Local Reference(Element) - Passing the element reference to the actions-->
 <!--We can have passed local reference as a parameter and in else condition also, check line numbers: 27 and 38 once. -->
 
 
-<!-- <p #viewpassword> Click Submit Button to Update the Password </p>
+<p #viewpassword> Click Submit Button to Update the Password </p>
 
 <button (click)="Clickbtn(viewpassword)">Submit</button>
 
-<p>{{output}}</p> -->
+<p>{{output}}</p>
 
 
 <!--ngTemplete(ELement) - By default, the content will be displayed. So, to hide the content like password, we use ngTemplete, to render/execute based on the condition.-->

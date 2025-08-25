@@ -1,4 +1,6 @@
 <!--View Child-->
+<!-- @ViewChild is used to give element reference frm html to .ts file-->
+ <!-- To use @viewchild, should import ViewChild, and -->
 <!-- <h3> Sign In </h3>
 <p #mgs>Please Enter Your First Name</p>
 <input type = "text" placeholder = "First Name"  #firstName/>
@@ -13,26 +15,30 @@
 
 
 
+<!-- ngContainer - It is a structural directive, deploys the template based on the condition-->
 
 <!--div - it does create dom-->
-<div *ngFor="let number of NumberList" style=" background-color: aqua;">{{number}}</div>
+<!-- <div *ngFor="let number of NumberList" style=" background-color: aqua;">{{number}}</div> -->
 
 <!--ng-Container - it doesn't create dom and when we apply style, there will be no changes, as the data/content in ng-container will not be rendered-->
-<ng-container *ngFor="let number of NumberList" style="background-color: aqua;">{{number}}</ng-container>
+<!-- <ng-container *ngFor="let number of NumberList" style="background-color: aqua;">{{number}}</ng-container> -->
 
 
 
 
 <ng-container #container></ng-container>
 
-<!-- <ng-template #tempCom> -->
+<!--By default ngTemplate, content in ngTemplete will not be rendered. It will be rendered based on the condition-->
+<ng-template #tempCom> 
     <!-- <span>Template Content</span> -->
-    <!-- <input type = "text" placeholder="First Name"/>
-</ng-template> -->
-
-<ng-template #tempCom let-firstname = "firstName">
-    <!-- <span>Template Content</span> -->
-    <input type = "text" placeholder="First Name" [value] = "firstname"/>
+     <input type = "text" placeholder="First Name"/>
 </ng-template>
+
+
+<!--Code to have name on textbox by default-->
+<!--<ng-template #tempCom let-firstname = "firstName"> 
+     <span>Template Content</span> 
+     <input type = "text" placeholder="First Name" [value] = "firstname"/>
+</ng-template> -->
 
 <button (click) = "etnclick()">Click Me</button>

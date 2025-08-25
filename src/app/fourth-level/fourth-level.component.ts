@@ -8,15 +8,14 @@ import { Component ,ContentChild,ElementRef,TemplateRef,ViewChild, ViewContainer
   styleUrls: ['./fourth-level.component.css']
 })
 export class FourthLevelComponent {
+
   //@View Child
 //Syntax: @ViewChild("Element Reference from html") localref: type(any);
 
-
-
-
+ 
 //@ViewChild('firstName') userfirstname: any; // should give string in single or double qoutes.
 
-@ViewChild('firstName') userfirstname: ElementRef<any>; // should give string in single or double qoutes.
+@ViewChild('firstName') userfirstname: ElementRef<any>;       // should give string in single or double qoutes.
 //It will throw error for userfirstname, so should add "strictPropertyInitialization" = false; in tsconfig.json file
 
 
@@ -48,16 +47,24 @@ NumberList = [1,2,3,4,5];
 
 
 
-
+//When we r using ng-templete, we should use TempleteRef
 @ViewChild ('tempCom',{read: TemplateRef}) tempCont: TemplateRef<any>;
 
+//When we r using ng-container, we should use ViewContainerRef
 @ViewChild('container', {read:ViewContainerRef}) container:ViewContainerRef;
+//if we won't mention object{read: TemplateRef / ViewContainer} it wll throw exception.
+
 
   etnclick()
   {
     //console.log(this.tempCont);
-    //this.container.insert(this.tempCont.createEmbeddedView(null));
+    
+     ////Using container, we will deploy template. So, we use this.container here. 
+     ////This container will have insert method. Using this method, we insert this.tempCont [which is template's local variable] and add method called createEmbeddedView()
+
+    this.container.insert(this.tempCont.createEmbeddedView(null));
+
     // instead of null, we can pass any value
-    this.container.insert(this.tempCont.createEmbeddedView({'firstName' : "Bandike"}));
+    //this.container.insert(this.tempCont.createEmbeddedView({'firstName' : "Bandike"}));
   }
 }
